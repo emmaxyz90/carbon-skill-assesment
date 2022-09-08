@@ -1,0 +1,19 @@
+---
+-  name: print Hello world and date Job
+   hosts: web
+   user: ubuntu
+   gather_facts: true
+   tasks:        
+     - name: Print Hello World and timestamp in a file on the server
+       ansible.builtin.cron:
+          name: "Create Sample.txt"
+          minute: "*1"
+          job: echo "Hello World at $(date)" >> /tmp/sample.txt
+
+     - name: Copy file with owner and permissions
+       copy:
+          src: docker-build.sh
+          dest: /home/ubuntu/
+          owner: ubuntu
+          group: ubuntu
+          mode: '0754'
