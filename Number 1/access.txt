@@ -1,0 +1,1 @@
+Define bitbucket login credentials as environment variables and substitute these variables in the configuration file to grant access to repository for a succesful build.
